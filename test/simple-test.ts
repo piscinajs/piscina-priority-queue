@@ -3,17 +3,17 @@ import PiscinaPriorityQueue from '..';
 import { test } from 'tap';
 import { resolve } from 'path';
 
-test('PiscinaPriorityQueue works', async ({ is }) => {
+test('PiscinaPriorityQueue works', async ({ equal }) => {
   const queue = new PiscinaPriorityQueue();
-  is(queue.size, 0);
+  equal(queue.size, 0);
   const task = PiscinaPriorityQueue.makeTask({}, 1);
   queue.push(task);
-  is(queue.size, 1);
+  equal(queue.size, 1);
   queue.remove(null);
   queue.remove(({} as any));
-  is(queue.size, 1);
+  equal(queue.size, 1);
   queue.remove(task);
-  is(queue.size, 0);
+  equal(queue.size, 0);
 });
 
 test('PiscinaPriorityQueue works with Piscina', async () => {
