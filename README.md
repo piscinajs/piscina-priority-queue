@@ -11,7 +11,7 @@ const { resolve } = require('path');
 
 const pool = new Piscina({
   filename: resolve(__dirname, 'worker.js'),
-  taskQueue; new PiscinaPriorityQueue()
+  taskQueue: new PiscinaPriorityQueue()
 });
 
 const priority_1_task = PiscinaPriorityQueue.makeTask({ a: 1 }, 1);
