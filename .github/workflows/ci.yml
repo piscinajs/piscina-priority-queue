@@ -1,0 +1,50 @@
+on:
+  push:
+    branches:
+     - current
+     - next
+     - 'v*'
+  pull_request:
+
+name: CI
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
+      - name: Install Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: v20.x
+      - name: Install dependencies
+        run: npm install
+      - name: Check linting
+        run: npm run lint
+
+  tests:
+    needs: [lint]
+    name: Tests
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        node-version: [20.x, 22.x, 24.x]
+    runs-on: ${{matrix.os}}
+    steps:
+      - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
+        with:
+          persist-credentials: false
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: package.json
+      
+      - name: Install Dependencies
+        run: npm install
+      - name: Run Tests
+        run: npm run test
