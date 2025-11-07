@@ -10,7 +10,7 @@
   "types": "./dist/src/index.d.ts",
   "scripts": {
     "build": "tsc && gen-esm-wrapper . dist/esm-wrapper.mjs",
-    "lint": "standardx \"**/*.{ts,mjs,js,cjs}\" | snazzy",
+    "lint": "eslint",
     "test": "npm run lint && npm run build && npm run test-only",
     "test-only": "tap --ts",
     "prepack": "npm run build"
@@ -29,41 +29,21 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^15.0.1",
-    "@typescript-eslint/eslint-plugin": "^4.9.0",
-    "@typescript-eslint/parser": "^4.9.0",
+    "@types/node": "^24.10.0",
+    "eslint": "^9.39.1",
     "gen-esm-wrapper": "^1.1.1",
-    "piscina": "3",
+    "neostandard": "^0.12.2",
+    "piscina": "^5.1.4",
     "snazzy": "^9.0.0",
     "standardx": "^7.0.0",
     "tap": "^15.0.6",
-    "ts-node": "^9.1.1",
-    "typescript": "^4.1.2"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
   },
   "peerDependencies": {
-    "piscina": "^3.0.0"
+    "piscina": "^5.0.0"
   },
   "dependencies": {
     "shuffled-priority-queue": "^2.1.0"
-  },
-  "eslintConfig": {
-    "rules": {
-      "semi": [
-        "error",
-        "always"
-      ],
-      "no-unused-vars": "off",
-      "@typescript-eslint/no-unused-vars": "error"
-    },
-    "globals": {
-      "SharedArrayBuffer": true,
-      "Atomics": true
-    }
-  },
-  "standardx": {
-    "parser": "@typescript-eslint/parser",
-    "plugins": [
-      "@typescript-eslint/eslint-plugin"
-    ]
   }
 }
