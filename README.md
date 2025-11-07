@@ -1,4 +1,4 @@
-# piscina-priority-queue - A Priority Queue for Piscina
+# @piscina/priority-queue - A Priority Queue for Piscina
 
 ![CI](https://github.com/jasnell/piscina/workflows/CI/badge.svg)
 
@@ -6,7 +6,7 @@
 
 ```js
 const Piscina = require('piscina');
-const PiscinaPriorityQueue = require('piscina-priority-queue');
+const PiscinaPriorityQueue = require('@piscina/priority-queue');
 const { resolve } = require('path');
 
 const pool = new Piscina({
