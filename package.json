@@ -1,6 +1,6 @@
 {
   "name": "@piscina/priority-queue",
-  "version": "4.0.1",
+  "version": "5.0.0",
   "description": "A Priority TaskQueue implementation for Piscina",
   "main": "./dist/src/index.js",
   "exports": {
