@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.1](https://github.com/piscinajs/piscina-priority-queue/compare/v4.0.0...v4.0.1) (2025-11-07)
+
+
+### Bug Fixes
+
+* add provenance ([2c0370d](https://github.com/piscinajs/piscina-priority-queue/commit/2c0370dbc320af376151f5558afe46270abb2d7d))
+
 ## [4.0.0](https://github.com/jasnell/piscina-priority-queue/compare/v3.0.0...v4.0.0) (2025-11-07)
 
 
