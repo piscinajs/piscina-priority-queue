@@ -12,7 +12,7 @@
     "build": "tsc && gen-esm-wrapper . dist/esm-wrapper.mjs",
     "lint": "eslint",
     "test": "npm run lint && npm run build && npm run test-only",
-    "test-only": "tap --ts",
+    "test-only": "node --import tsx --test test/*.ts",
     "prepack": "npm run build"
   },
   "repository": {
@@ -34,10 +34,7 @@
     "gen-esm-wrapper": "^1.1.1",
     "neostandard": "^0.12.2",
     "piscina": "^5.1.4",
-    "snazzy": "^9.0.0",
-    "standardx": "^7.0.0",
-    "tap": "^15.0.6",
-    "ts-node": "^10.9.2",
+    "tsx": "^4.19.4",
     "typescript": "^5.9.3"
   },
   "peerDependencies": {
