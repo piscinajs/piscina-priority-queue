@@ -1,19 +1,20 @@
 import Piscina from 'piscina';
 import PiscinaPriorityQueue from '..';
-import { test } from 'tap';
+import { test } from 'node:test';
+import assert from 'node:assert';
 import { resolve } from 'path';
 
-test('PiscinaPriorityQueue works', async ({ equal }) => {
+test('PiscinaPriorityQueue works', async () => {
   const queue = new PiscinaPriorityQueue();
-  equal(queue.size, 0);
+  assert.strictEqual(queue.size, 0);
   const task = PiscinaPriorityQueue.makeTask({}, 1);
   queue.push(task);
-  equal(queue.size, 1);
+  assert.strictEqual(queue.size, 1);
   queue.remove(null);
   queue.remove({} as any);
-  equal(queue.size, 1);
+  assert.strictEqual(queue.size, 1);
   queue.remove(task);
-  equal(queue.size, 0);
+  assert.strictEqual(queue.size, 0);
 });
 
 test('PiscinaPriorityQueue works with Piscina', async () => {
